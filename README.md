@@ -6,6 +6,7 @@ Each folder is a different project explained below:
 Lab1: Inheritance and Polymorphism
 
 `lab1a` Inhertance
+
 `lab1b` Polymorphism
 
 lab2: 
