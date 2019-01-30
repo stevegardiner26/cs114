@@ -41,12 +41,13 @@ public class Driver {
                 System.out.print("Enter salary: ");
                 String salary = input3.nextLine();
                 System.out.print("Enter date hired (mm/dd/yy): ");
-                String datehired = input3.nextLine();
+                String datehiredpre = input3.nextLine();
+                MyDate datehired = new MyDate(datehiredpre);
                 System.out.print("Enter rank: ");
                 String rank = input3.nextLine();
                 System.out.print("Enter office hours: ");
                 String officehours = input3.nextLine();
-                Faculty member = new Faculty(name, address, phone, email, officenum, salary, datehired, rank, officehours);
+                Faculty member = new Faculty(name, address, phone, email, officenum, salary, datehired.getDate(), rank, officehours);
                 member.toString();
             } else if (eval.equals("2")) {
                 System.out.print("Enter office number: ");
@@ -54,10 +55,11 @@ public class Driver {
                 System.out.print("Enter salary: ");
                 String salary = input3.nextLine();
                 System.out.print("Enter date hired (mm/dd/yy): ");
-                String datehired = input3.nextLine();
+                String datehiredpre = input3.nextLine();
+                MyDate datehired = new MyDate(datehiredpre);
                 System.out.print("Enter title: ");
                 String title = input3.nextLine();
-                Staff member = new Staff(name, address, phone, email, officenum, salary, datehired, title);
+                Staff member = new Staff(name, address, phone, email, officenum, salary, datehired.getDate(), title);
                 member.toString();
             }
         } else {
