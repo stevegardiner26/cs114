@@ -3,19 +3,17 @@ import java.util.Scanner;
 
 public class Recursion {
     //Here is the count method which is going to count how many times the char is within the string
-    public static int count(String str, char a) {
-        //Defining a counter variable to 0
-        int amount = 0;
-        //Looping through the characters of the string
-        for(int i = 0; i < str.length(); i++) {
-            //Checking if that character is the desired character
-            if(str.charAt(i) == a) {
-                //Adding 1 to the counter
-                amount++;
-            }
+    public static int amount = 0;
+    public static void count(String str, char a) {
+        //Checking if that character is the desired character
+        if(str.charAt(0) == a) {
+            //Adding 1 to the counters
+            amount++;
         }
-        //returning the counter
-        return amount;
+        //Restarting the Function to check a string without the first char
+        if(str.length() > 1) {
+            count(str.substring(1), a);
+        }
     }
 
     public static void main(String[] args) {
@@ -26,6 +24,7 @@ public class Recursion {
         String b = scanner.nextLine();
         //Getting the char from the scanner string because the scanner returns a string
         char character = b.charAt(0);
-        System.out.print(count(string, character));
+        count(string, character);
+        System.out.print(amount);
     }
 }
