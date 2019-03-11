@@ -15,7 +15,6 @@ public class Driver {
         int length = s.length();
         //Adding the First state
         queue.add(s.substring(0,1));
-        
 
 
 
