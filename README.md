@@ -11,3 +11,9 @@ Each folder is a different project explained below:
 `lab1b` Polymorphism
 
 `lab2` Recursion
+
+`lab3` Array Lists
+
+`lab4` Array Linked List
+
+`lab5a`
