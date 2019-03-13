@@ -10,12 +10,32 @@ public class Driver {
     }
 
     public static void printSubsets(String s) {
-        Queue<String> queue = new PriorityQueue<>();
+        Queue<CState> queue = new LinkedList<>();
         LinkedList<String> list = new LinkedList<>();
         int length = s.length();
         //Adding the First state
-        queue.add(s.substring(0,1));
+        CState c = new CState("", s);
+        queue.add(c);
+        //While the queue is not empty
+        while(!queue.isEmpty()) {
+            //Remove the first state
+            CState removed = queue.poll();
+            //Visit the state
 
+            CState child1 = new CState(removed.pre() + removed.suff().substring(0,1), removed.suff().substring(1));
+            CState child2 = new CState(removed.pre(), removed.suff().substring(1));
+
+            if(!child1.suff().equals("")) {
+                queue.add(child1);
+            } else {
+                list.add(child1.pre());
+            }
+            if(!child2.suff().equals("")) {
+                queue.add(child2);
+            } else {
+                list.add(child2.pre());
+            }
+        }
 
 
         while(!list.isEmpty()) {
@@ -25,15 +45,6 @@ public class Driver {
     }
 }
 
-/*"" & abcd -> a & bcd, "" & bcd
-a & bcd -> ab & cd, a & cd
-ab & cd -> abc & d, ab & d
-"" & d -> d & ""
-d & "" -> not valid
-
-//Bredth First Search
-//Create a queue
-// add first state
 
 //while the queue is not empty
 // remove the first state
@@ -42,4 +53,14 @@ d & "" -> not valid
 //for all the children:
 //  if the children are valid
 //      add the children
-*/
+
+
+/*"" & abcd -> a & bcd, "" & bcd
+a & bcd -> ab & cd, a & cd
+ab & cd -> abc & d, ab & d
+"" & d -> d & ""
+d & "" -> not valid
+
+//Bredth First Search
+//Create a queue
+// add first state */
