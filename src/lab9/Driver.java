@@ -8,10 +8,12 @@ import java.io.*;
 
 public class Driver extends JPanel implements ActionListener {
 
+    //Declaring initial variables
     static JTextArea text;
     static JFileChooser fc;
     static String filePath;
 
+    //Starting the Execution of the Program
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
@@ -21,15 +23,19 @@ public class Driver extends JPanel implements ActionListener {
     }
 
     public static void startProgram() {
+        //Creating the initial frame & window & button
         JFrame frame = new JFrame("Display and Save File");
         JPanel panel = new JPanel();
         text = new JTextArea();
         JButton savebutton = new JButton("Save");
+        //Creating the Button Listener for when the button is pressed
         savebutton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                //Getting the text from the textarea
                 String pageContent = text.getText();
                 try {
+                    //Writing to the file the text in the textarea
                     FileWriter writer = new FileWriter(filePath);
                     writer.write(pageContent);
                     writer.close();
@@ -41,12 +47,14 @@ public class Driver extends JPanel implements ActionListener {
             }
         });
 
+        //Initializing The File Chooser
         fc = new JFileChooser();
         int returnVal = fc.showOpenDialog(fc);
 
         if (returnVal == JFileChooser.APPROVE_OPTION) {
             File file = fc.getSelectedFile();
             try {
+                //Getting the File Chosen and Opening it's contents in the textarea
                 filePath = file.getAbsolutePath();
                 text.read(new FileReader(file.getAbsolutePath()), null);
                 JScrollPane scrollPane = new JScrollPane(text);
