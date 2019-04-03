@@ -16,4 +16,12 @@ Each folder is a different project explained below:
 
 `lab4` Array Linked List
 
-`lab5a`
+`lab5` Stacks
+
+`lab6` Queues / Bredth First Search
+
+`lab7` Dictionaries
+
+`lab8` Tree/Binary Tree
+
+`lab9` Java GUI Interaction and Manipulation

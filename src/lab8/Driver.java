@@ -1,4 +1,4 @@
-package lab8a;
+package lab8;
 import java.io.*;
 import java.util.*;
 
@@ -9,7 +9,7 @@ public class Driver {
         BST binarytree = new BST();
 
         //Creation of File
-        File file = new File("C:\\Users\\steve\\Documents\\GitHub\\cs114\\src\\lab8a\\inventory.txt");
+        File file = new File("C:\\Users\\steve\\Documents\\GitHub\\cs114\\src\\lab8\\inventory.txt");
         BufferedReader reader = new BufferedReader(new FileReader(file));
         String line = null;
         try {
@@ -68,6 +68,18 @@ public class Driver {
         System.out.println(postorder(binarytree));
         System.out.println("PreOrder of the Tree");
         System.out.println(preorder(binarytree));
+
+
+        //Part B of Lab 8
+
+        //Getting the low and high values of the binary tree
+        System.out.println("BPTree Size: " + binarytree.size());
+        System.out.println("Enter a low value for the range: ");
+        String low = scanner.nextLine();
+        System.out.println("Enter a high value for the range: ");
+        String high = scanner.nextLine();
+        System.out.println("From " + low + " to " + high + " are ");
+        System.out.println(binarytree.printRang(low, high));
     }
 
     public static String inorder(BST tree) {

@@ -1,4 +1,4 @@
-package lab8a;
+package lab8;
 /** Container class for a key-value pair */
 class KVpair<Key, E> {
 	private Key k;

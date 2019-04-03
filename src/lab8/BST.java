@@ -1,4 +1,4 @@
-package lab8a;
+package lab8;
 /** Source code example for "A Practical Introduction to Data
     Structures and Algorithm Analysis, 3rd Edition (Java)" 
     by Clifford A. Shaffer
@@ -160,5 +160,24 @@ private BSTNode<Key,E> deletemin(BSTNode<Key,E> rt) {
   }
   private void printVisit(E it) {
     out.append(it + "\n");
+  }
+
+  //Part B for Lab 8
+
+    //The print Rang Function which just initializes the out variable, calls the help func, and returns the String
+  public String printRang(String low, String high) {
+      out = new StringBuffer(400);
+      printRangHelp(root, low, high);
+      return out.toString();
+  }
+
+  private void printRangHelp(BSTNode<Key,E> rt, String low, String high) {
+      if (rt == null) return;
+      //Using an inorder recursive method if the key is within the bounds the element is visited to the out variable
+      printRangHelp(rt.left(), low, high);
+      if((rt.key().toString().compareTo(low) > 0) && (0 > rt.key().toString().compareTo(high))) {
+          printVisit(rt.element());
+      }
+      printRangHelp(rt.right(), low, high);
   }
 }

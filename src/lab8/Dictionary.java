@@ -1,4 +1,4 @@
-package lab8a;
+package lab8;
 /** Source code example for "A Practical Introduction to Data
     Structures and Algorithm Analysis, 3rd Edition (Java)" 
     by Clifford A. Shaffer
