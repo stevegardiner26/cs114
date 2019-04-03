@@ -123,6 +123,7 @@ private BSTNode<Key,E> deletemin(BSTNode<Key,E> rt) {
 
   private StringBuffer out;
 
+ //Using the BSTNode and recursion to print the tree in Post order
   private void printhelpPost(BSTNode<Key,E> rt) {
       if (rt == null) return;
       printhelpPost(rt.left());
@@ -130,19 +131,22 @@ private BSTNode<Key,E> deletemin(BSTNode<Key,E> rt) {
       printVisit(rt.element());
   }
 
-  private void printhelpPre(BSTNode<Key,E> rt) {
+    //Using the BSTNode and recursion to print the tree in Pre order
+    private void printhelpPre(BSTNode<Key,E> rt) {
       if (rt == null) return;
       printVisit(rt.element());
       printhelpPre(rt.left());
       printhelpPre(rt.right());
   }
 
+  //To Post function to be accessed from the Driver Class
   public String toPost() {
        out = new StringBuffer(400);
        printhelpPost(root);
        return out.toString();
   }
 
+  //To Pre function to be accessed from the Driver Class
   public String toPre() {
       out = new StringBuffer(400);
       printhelpPre(root);
@@ -157,5 +161,4 @@ private BSTNode<Key,E> deletemin(BSTNode<Key,E> rt) {
   private void printVisit(E it) {
     out.append(it + "\n");
   }
-
 }
